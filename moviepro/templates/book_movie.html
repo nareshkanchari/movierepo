@@ -1,0 +1,60 @@
+<html>
+<head>
+    <title>Book Movie</title>
+     <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+    label{
+        color: whitesmoke;
+    }
+    body{
+        background-image: linear-gradient(black,cornflowerblue);
+    }
+    h2{
+        text-align: center;
+        color: whitesmoke;
+        margin-top: 40px;
+        text-shadow: 3px 3px 5px aqua;
+    }
+
+    form{
+        margin-top: 20px;
+        border-radius: 10px 20px;
+    }
+    #bid{
+        background-image: linear-gradient(to right,black,black,black,cornflowerblue,whitesmoke);
+        margin-top: 10px;
+    }
+    #did{
+        margin-right: 80px;
+        width: 260px;
+    }
+    #lid{
+        margin-right: 260px;
+        margin-top: 10px;
+    }
+</style>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="offset-md-4 col-md-4">
+            <h2>Book Tickets Here</h2>
+            <form method="POST">
+                {% csrf_token %}
+                {{ bform }}
+                <center>
+                <label id="lid">Select Date:</label><br>
+                <input type="date" name="select_date" id="did"><br>
+                <input type="submit" value="Book"  class="btn btn-dark action-checkbox" id="bid" >
+                </center>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

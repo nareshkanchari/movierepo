@@ -1,0 +1,76 @@
+<html>
+<head>
+    <title>English Movies</title>
+     <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+    .jumbotron{
+        margin-top: 10px;
+    }
+    table{
+        margin-top: 20px;
+    }
+    th,td{
+        height: 10px;
+        width: 200px;
+        font-size: 15px;
+        text-align: center;
+        padding: 5px ;
+        font-size: 20px;
+        font-family: Monaco;
+        text-shadow: 3px 3px 5px aqua;
+        color: ghostwhite;
+    }
+     .jumbotron{
+        background-image: linear-gradient(blue,black);
+        font-family: Monaco;
+    }
+    #bid{
+        background-image: linear-gradient(to right,black,black,black,cornflowerblue,whitesmoke);
+        margin-top: 10px;
+    }
+</style>
+<body>
+<div class="jumbotron">
+{% if edata %}
+    <center>
+    <table border="2px">
+    <thead>
+    <tr>
+        <th>Movie Name</th>
+        <th>Director Name</th>
+        <th>Hero Name</th>
+        <th>Heroiene Name</th>
+        <th>Producer Name</th>
+        <th>Released date</th>
+    </tr>
+    </thead>
+    {% for i in edata%}
+    <tbody>
+    <tr>
+        <td>{{ i.movie_name }}</td>
+        <td>{{ i.director_name }}</td>
+        <td>{{ i.Hero_name }}</td>
+        <td>{{ i.Heroiene_name }}</td>
+        <td>{{ i.producer_name }}</td>
+        <td>{{ i.released_date }}</td>
+    </tr>
+    </tbody>
+    {% endfor %}
+    </table>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Goto Book" class="btn btn-dark action-checkbox" id="bid">
+    </form>
+    </center>
+{% else %}
+    <h3>No movies are available</h3>
+{% endif %}
+</div>
+</body>
+</html>
